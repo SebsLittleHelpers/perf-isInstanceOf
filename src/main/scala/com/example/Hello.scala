@@ -82,6 +82,22 @@ object Hello extends JSApp {
           }
         }
       }
+      
+      measure method "isInstanceOf[Serializable]" in {
+        using(sampleOfAs) in { list =>
+          list.foreach {
+            _.isInstanceOf[Serializable]
+          }
+        }
+      }
+      
+      measure method "isInstanceOf[Cloneable]" in {
+        using(sampleOfAs) in { list =>
+          list.foreach {
+            _.isInstanceOf[Cloneable]
+          }
+        }
+      }
     }
     
     override def reporter = new Reporter[Double] {
